@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content%}
+    
+    <h2>Finch List</h2>
+
+    {% for finch in finches %}
+        <h4>{{ finch.name }}</h4>
+        <p>Subtype: {{ finch.subtype }}</p>
+        <p>Description: {{ finch.description }}</p>
+        <p>Size: {{ finch.size }}</p>
+    {% endfor %}
+    
+{% endblock%}
