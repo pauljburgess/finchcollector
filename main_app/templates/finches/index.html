@@ -4,10 +4,13 @@
     <h2>Finch List</h2>
 
     {% for finch in finches %}
-        <h4>{{ finch.name }}</h4>
-        <p>Subtype: {{ finch.subtype }}</p>
-        <p>Description: {{ finch.description }}</p>
-        <p>Size: {{ finch.size }}</p>
+        <a href="{% url 'detail' finch.id %}">
+            <h4>{{ finch.name }}</h4>
+            <p>Subtype: {{ finch.subtype }}</p>
+            <p>Description: {{ finch.description|linebreaks }}</p>
+            <p>Size: {{ finch.size }}</p>
+            <p>Range: {{ finch.range }}</p>
+        </a>
     {% endfor %}
     
 {% endblock%}

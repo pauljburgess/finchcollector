@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<h2>{{ finch.name }}</h2>
+
+<p>Subtype: {{ finch.subtype }}</p>
+<p>Description: {{ finch.description|linebreaks }}</p>
+<p>Size: {{ finch.size }}</p>
+<p>Range: {{ finch.range }}</p>
+
+
+{% endblock%}
