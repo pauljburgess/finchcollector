@@ -18,5 +18,5 @@ def finches_index(request):
 def finches_detail(request, finch_id):
     finch = Finch.objects.get(id=finch_id)
     return render(request, 'finches/detail.html', {
-        'finch' : finch,
+        'finch' : finch
     })
