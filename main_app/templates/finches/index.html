@@ -3,19 +3,28 @@
 
 <h2>Finch List</h2>
 
-{% for finch in finches %}
-<div class="row">
-    <div class="card" style="width: 18rem;">
-        <img src="https://www.allaboutbirds.org/guide/assets/photo/306710541-1280px.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ finch.name }}</h5>
-            <h6>Subtype: {{ finch.subtype }}</h6>
-            <p class="card-text">Description: {{ finch.description|linebreaks }}</p>
-            <a href="{% url 'detail' finch.id %}" class="btn btn-success">Details</a>
+
+<div class="row gy-3">
+    <div class="card-deck">
+        {% for finch in finches %}
+        <div class="card" style="width: 18rem;">
+            <img src="https://www.allaboutbirds.org/guide/assets/photo/306710541-1280px.jpg" class="card-img-top"
+                alt="...">
+            <div class="card-header">
+                <h5 class="card-title">{{ finch.name }}</h5>
+
+            </div>
+            <div class="card-body">
+                <h6>Subtype: {{ finch.subtype }}</h6>
+                <p class="card-text">Description: {{ finch.description|linebreaks }}</p>
+                <div class="card-footer">
+                    <a href="{% url 'detail' finch.id %}" class="btn btn-success">Details</a>
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
-{% endfor %}
 
 
 {% endblock%}
