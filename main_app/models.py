@@ -23,7 +23,7 @@ class Finch(models.Model):
     
 
 class Sighting(models.Model):
-    date = models.DateField()
+    date = models.DateField('Seen on:')
     gender = models.CharField(
         max_length=1,
         choices=GENDERS,
