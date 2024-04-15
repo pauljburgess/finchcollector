@@ -1,11 +1,11 @@
 body {
-    background-color: #E3E1D9;
+    background-color: #fbfbfb;
 }
 
 nav {
     background-color: #B4B4B8;
 }
 
-.detail-card {
-    height: 500px;
+nav > a:hover {
+    background-color: blue;
 }

@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Finch
+from .forms import SightingForm
 
 # Create your views here.
 
@@ -18,9 +19,18 @@ def finches_index(request):
 
 def finches_detail(request, finch_id):
     finch = Finch.objects.get(id=finch_id)
+    sighting_form = SightingForm()
     return render(request, 'finches/detail.html', {
-        'finch' : finch
+        'finch' : finch , 'sighting_form' : sighting_form
     })
+
+def add_sighting(request, finch_id):
+    form = SightingForm(request.POST)
+    if form.is_valid():
+        new_sighting = form.save(commit=False)
+        new_sighting.finch_id = finch_id
+        new_sighting.save()
+    return redirect('detail', finch_id=finch_id)
 
 class FinchCreate(CreateView):
     model = Finch

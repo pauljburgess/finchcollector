@@ -35,5 +35,6 @@ class Sighting(models.Model):
     def __str__(self):
         return f'{self.get_gender_display()} on {self.date}'
     
-    
+    class Meta:
+        ordering = ['-date']    
 

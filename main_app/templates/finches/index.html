@@ -1,30 +1,30 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<h2>Finch List</h2>
-
-
-<div class="row gy-3">
-    <div class="card-deck">
-        {% for finch in finches %}
-        <div class="card" style="width: 18rem;">
-            <img src="https://www.allaboutbirds.org/guide/assets/photo/306710541-1280px.jpg" class="card-img-top"
-                alt="...">
-            <div class="card-header">
-                <h5 class="card-title">{{ finch.name }}</h5>
-
-            </div>
-            <div class="card-body">
-                <h6>Subtype: {{ finch.subtype }}</h6>
-                <p class="card-text">Description: {{ finch.description|linebreaks }}</p>
-                <div class="card-footer">
-                    <a href="{% url 'detail' finch.id %}" class="btn btn-success">Details</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+<div class="row mt-3 mb-4">
+    <div class="col-2"></div>
+    <div class="col-10">
+        <h1>Here are all the adorable finches we have so far:</h1>
     </div>
 </div>
+
+{% for finch in finches %}
+<div class="row mb-3">
+    <div class="col-2"></div>
+    <div class="col-3">
+        <img src="https://www.allaboutbirds.org/guide/assets/photo/306710541-1280px.jpg" class="card-img-top" alt="...">
+    </div>
+
+    <div class="col-6">
+        <h2>{{ finch.name }}</h2>
+        <h5>Subtype: {{ finch.subtype }}</h5>
+        <div>
+            <a href="{% url 'detail' finch.id %}" class="btn btn-success">Details</a>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+{% endfor %}
 
 
 {% endblock%}
