@@ -19,9 +19,10 @@
 
     <header>
         <nav class="nav nav-tabs nav-fill">
-            <a class="nav-link" href="/">HOME</a>
-            <a class="nav-link" href="/finches">ALL FINCHES</a>
-            <a class="nav-link" href="/about">ABOUT</a>
+            <a class="nav-link" href="{% url 'home' %}">HOME</a>
+            <a class="nav-link" href="{% url 'index' %}">ALL FINCHES</a>
+            <a class="nav-link" href="{% url 'finches_add' %}">ADD A FINCH</a>
+            <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
             <a class="nav-link" href="/admin">ADMIN</a>
         </nav>
     </header>
