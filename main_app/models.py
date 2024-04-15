@@ -1,7 +1,13 @@
 from django.db import models
 from django.urls import reverse
 
-# Create your models here.
+GENDERS = (
+    ('M', 'Male/s'),
+    ('F', 'Female/s'),
+    ('B','Both male/s and female/s')
+)
+
+
 class Finch(models.Model):
     name = models.CharField(max_length=100)
     subtype = models.CharField(max_length=100)
@@ -14,3 +20,20 @@ class Finch(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'finch_id' : self.id})
+    
+
+class Sighting(models.Model):
+    date = models.DateField()
+    gender = models.CharField(
+        max_length=1,
+        choices=GENDERS,
+        default=GENDERS[0][0],
+        )
+
+    finch = models.ForeignKey(Finch, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.get_gender_display()} on {self.date}'
+    
+    
+
