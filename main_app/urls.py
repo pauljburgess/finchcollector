@@ -13,5 +13,6 @@ urlpatterns = [
     path('places/', views.PlaceList.as_view(), name="places"),
     path('places/create/', views.PlaceCreate.as_view(), name="places_add"),
     path('finches/<int:finch_id>/assoc_place/<int:place_id>/', views.assoc_place, name="assoc_place"),
-
+    path('finches/<int:finch_id>/remove_place/<int:place_id>/', views.remove_place, name="remove_place"),
+    
 ]

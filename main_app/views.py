@@ -40,6 +40,14 @@ def assoc_place(request, finch_id, place_id):
     return redirect('detail', finch_id=finch_id)
 
 
+def remove_place(request, finch_id, place_id):
+    print(finch_id)
+    Finch.objects.get(id=finch_id).places.remove(place_id)
+    return redirect('detail', finch_id=finch_id)
+
+
+
+
 class FinchCreate(CreateView):
     model = Finch
     fields = '__all__'

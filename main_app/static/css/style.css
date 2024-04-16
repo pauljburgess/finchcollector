@@ -6,6 +6,6 @@ nav {
     background-color: #B4B4B8;
 }
 
-nav > a:hover {
-    background-color: blue;
+nav {
+    flex-direction: column;
 }

@@ -44,11 +44,19 @@
         {% if finch.places.count %}
         {% for place in finch.places.all %}
         <h5>{{ place.name }}, {{ place.country }}</h5>
+        <div>
+            <form action="{% url 'remove_place' finch.id place.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Remove</button>
+            </form>
+        </div>
+
         {% endfor %}
         {% else %}
         <h5>No places recorded</h5>
         {% endif %}
     </div>
+
     <div class="col-6">
         <h3>Possible Places:</h3>
         {% if places.count %}
@@ -61,7 +69,9 @@
             </form>
         </div>
         {% endfor %}
-       {% endif %} 
+        {% else %}
+        <h4>The {{ finch.name }} has apparrently been seen in all available places.</h4>
+        {% endif %}
     </div>
 </div>
 

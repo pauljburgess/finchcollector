@@ -18,7 +18,8 @@
 <body>
 
     <header>
-        <nav class="nav nav-fill">
+        <div class="container d-flex flex-column"></div>
+        <nav class="navbar d-flex flex-column ">
             <a class="nav-link" href="{% url 'home' %}">HOME</a>
             <a class="nav-link" href="{% url 'index' %}">ALL FINCHES</a>
             <a class="nav-link" href="{% url 'finches_add' %}">ADD A FINCH</a>
@@ -36,7 +37,7 @@
             {% endblock %}
         </div>
     </main>
-    
+
     <footer>
         <p>Copywrite 2024 Finch Collector</p>
     </footer>
