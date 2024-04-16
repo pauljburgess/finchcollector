@@ -7,6 +7,9 @@ GENDERS = (
     ('B','Both male/s and female/s')
 )
 
+class Place(models.Model):
+    name = models.CharField(max_length=40)
+    country = models.CharField(max_length=40)
 
 class Finch(models.Model):
     name = models.CharField(max_length=100)
@@ -21,7 +24,6 @@ class Finch(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'finch_id' : self.id})
     
-
 class Sighting(models.Model):
     date = models.DateField('Seen on:')
     gender = models.CharField(
