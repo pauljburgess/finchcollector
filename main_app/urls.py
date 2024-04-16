@@ -12,6 +12,6 @@ urlpatterns = [
     path('finches/<int:finch_id>/add_sighting/', views.add_sighting, name="add_sighting"),
     path('places/', views.PlaceList.as_view(), name="places"),
     path('places/create/', views.PlaceCreate.as_view(), name="places_add"),
-
+    path('finches/<int:finch_id>/assoc_place/<int:place_id>/', views.assoc_place, name="assoc_place"),
 
 ]

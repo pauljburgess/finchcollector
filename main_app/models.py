@@ -17,6 +17,7 @@ class Finch(models.Model):
     description = models.TextField(max_length=300)
     size = models.CharField(max_length=25)
     range = models.CharField(max_length=25)
+    places = models.ManyToManyField(Place)
 
     def __str__(self):
         return self.name

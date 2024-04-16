@@ -22,17 +22,47 @@
 
     <table>
         <thead>
-            <tr><th>Date</th><th>Genders Seen</th></tr>
+            <tr>
+                <th>Date</th>
+                <th>Genders Seen</th>
+            </tr>
         </thead>
         <tbody>
             {% for sighting in finch.sighting_set.all %}
-                <tr>
-                    <td>{{ sighting.date }}</td>
-                    <td>{{ sighting.get_gender_display }}</td>
-                </tr>
+            <tr>
+                <td>{{ sighting.date }}</td>
+                <td>{{ sighting.get_gender_display }}</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <h3> {{ finch.name }}s have been seen in: </h3>
+        {% if finch.places.count %}
+        {% for place in finch.places.all %}
+        <h5>{{ place.name }}, {{ place.country }}</h5>
+        {% endfor %}
+        {% else %}
+        <h5>No places recorded</h5>
+        {% endif %}
+    </div>
+    <div class="col-6">
+        <h3>Possible Places:</h3>
+        {% if places.count %}
+        {% for place in places.all %}
+        <h5>{{ place.name }}, {{ place.country }}</h5>
+        <div>
+            <form action="{% url 'assoc_place' finch.id place.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Add</button>
+            </form>
+        </div>
+        {% endfor %}
+       {% endif %} 
+    </div>
 </div>
 
 {% endblock%}
