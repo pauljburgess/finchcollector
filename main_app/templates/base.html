@@ -6,41 +6,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
     <title>Finch Collector</title>
 </head>
 
 <body>
+    <aside class="sidebar">
+        <ul>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">ALL FINCHES</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'finches_add' %}">ADD A FINCH</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'places' %}">ALL PLACES</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'places_add' %}">ADD A PLACE</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">ABOUT</a></li>
+            <li class="nav-item"><a class="nav-link" href="/admin">ADMIN</a></li>
+        </ul>
+    </aside>
 
-    <header>
-        <div class="container d-flex flex-column"></div>
-        <nav class="navbar d-flex flex-column ">
-            <a class="nav-link" href="{% url 'home' %}">HOME</a>
-            <a class="nav-link" href="{% url 'index' %}">ALL FINCHES</a>
-            <a class="nav-link" href="{% url 'finches_add' %}">ADD A FINCH</a>
-            <a class="nav-link" href="{% url 'places' %}">ALL PLACES</a>
-            <a class="nav-link" href="{% url 'places_add' %}">ADD A PLACE</a>
-            <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
-            <a class="nav-link" href="/admin">ADMIN</a>
-        </nav>
-    </header>
 
-    <main>
-        <div class="container">
-            {% block content %}
+    <main class="content">
+        {% block content %}
 
-            {% endblock %}
-        </div>
+
+        {% endblock %}
     </main>
-
-    <footer>
+    
+    <!-- <footer>
         <p>Copywrite 2024 Finch Collector</p>
-    </footer>
+    </footer> -->
 
 </body>
 

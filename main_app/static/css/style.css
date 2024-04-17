@@ -1,11 +1,95 @@
 body {
-    background-color: #fbfbfb;
+    background-color: #d7cec2;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
 }
 
-nav {
-    background-color: #B4B4B8;
+
+
+.sidebar {
+    min-width: 200px;
+    background-color: #102C57;
+    font-family: Quicksand;
+    font-size: 20px;
+    
 }
 
-nav {
-    flex-direction: column;
+.content {
+    flex-grow: 1;
+    background-color: #FEFAF6;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 35px;
+}
+
+.nav-link {
+    color: rgb(208, 208, 180);
+    text-decoration: none;
+    margin-bottom: 100px;
+    padding-left: 25px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-item {
+    padding: 10px 0px 10px 0px;
+}
+
+.nav-item:hover {
+    background-color: #183a6e;
+}
+
+h1 {
+    font-family: Quicksand;
+    font-size: 40px;
+    margin-left: 25px;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.card {
+    border: 1px solid black;
+    width: 60vmin;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.button {
+    width: 75px;
+    padding: 3px 0px 3px 0px;
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.button > a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+
+    body {
+        flex-direction: column-reverse;
+    }
+
+    h1 {
+
+    }
+
 }
