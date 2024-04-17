@@ -1,63 +1,71 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<h1 class="top-right">{{ finch.name }}</h1>
+<h1>{{ finch.name }}</h1>
 
-<p>Subtype: {{ finch.subtype }}</p>
-<p>Description: {{ finch.description|linebreaks }}</p>
-<p>Size: {{ finch.size }}</p>
-<p>Range: {{ finch.range }}</p>
+<div class="details-container">
 
-<div>
-    <a href="{% url 'finches_update' finch.id %}">Edit</a>
-    <a href="{% url 'finches_delete' finch.id %}">Delete</a>
-</div>
+    <div class="card" id="detail-card">
+        <h3>Subtype: {{ finch.subtype }}</h3>
+        <p>Description: {{ finch.description|linebreaks }}</p>
+        <p>Size: {{ finch.size }}</p>
+        <p>Range: {{ finch.range }}</p>
 
-<div>
-    <form action="{% url 'add_sighting' finch.id %}" method="POST">
-        {% csrf_token %}
-        {{ sighting_form.as_p }}
-        <input type="submit" value="Add Sighting" id="btn">
-    </form>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Genders Seen</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for sighting in finch.sighting_set.all %}
-            <tr>
-                <td>{{ sighting.date }}</td>
-                <td>{{ sighting.get_gender_display }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-
-<div class="row">
-    <div class="col-6">
-        <h3> {{ finch.name }}s have been seen in: </h3>
-        {% if finch.places.count %}
-        {% for place in finch.places.all %}
-        <h5>{{ place.name }}, {{ place.country }}</h5>
         <div>
-            <form action="{% url 'remove_place' finch.id place.id %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn">Remove</button>
-            </form>
+            <a href="{% url 'finches_update' finch.id %}">Edit</a>
+            <a href="{% url 'finches_delete' finch.id %}">Delete</a>
         </div>
-
-        {% endfor %}
-        {% else %}
-        <h5>No places recorded</h5>
-        {% endif %}
     </div>
 
-    <div class="col-6">
+
+
+    <div class="card" id="sightings-card">
+        <form action="{% url 'add_sighting' finch.id %}" method="POST">
+            {% csrf_token %}
+            {{ sighting_form.as_p }}
+            <input type="submit" value="Add Sighting" id="btn">
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Genders Seen</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sighting in finch.sighting_set.all %}
+                <tr>
+                    <td>{{ sighting.date }}</td>
+                    <td>{{ sighting.get_gender_display }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card" id="seen-card">
+        <div>
+            <h3> {{ finch.name }}s have been seen in: </h3>
+            {% if finch.places.count %}
+            {% for place in finch.places.all %}
+            <h5>{{ place.name }}, {{ place.country }}</h5>
+            <div>
+                <form action="{% url 'remove_place' finch.id place.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Remove</button>
+                </form>
+            </div>
+
+            {% endfor %}
+            {% else %}
+            <h5>No places recorded</h5>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="card" id="places-card">
         <h3>Possible Places:</h3>
         {% if places.count %}
         {% for place in places.all %}
@@ -74,5 +82,5 @@
         {% endif %}
     </div>
 </div>
-
+</div>
 {% endblock%}

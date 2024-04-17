@@ -4,8 +4,8 @@
 <h1 class="top-right">Places so Far</h1>
 
 {% for place in place_list %}
-    <h3> {{ place.name }} </h3>
-    <h5> {{ place.country }} </h5>
+    <p> <strong>{{ place.name }}</strong>, {{ place.country }} </p>
+
 {% endfor %}    
 
 {% endblock%}

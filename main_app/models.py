@@ -8,7 +8,7 @@ GENDERS = (
 )
 
 class Place(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, unique=True)
     country = models.CharField(max_length=40)
 
 class Finch(models.Model):

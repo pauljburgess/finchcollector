@@ -1,11 +1,11 @@
 body {
-    background-color: #d7cec2;
     padding: 0;
     margin: 0;
     min-height: 100vh;
     display: flex;
+    background-color: #FEFAF6;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 
 
 .sidebar {
@@ -13,12 +13,11 @@ body {
     background-color: #102C57;
     font-family: Quicksand;
     font-size: 20px;
-    
+    margin-right: 35px;
 }
 
 .content {
     flex-grow: 1;
-    background-color: #FEFAF6;
 }
 
 ul {
@@ -49,7 +48,6 @@ ul {
 h1 {
     font-family: Quicksand;
     font-size: 40px;
-    margin-left: 25px;
 }
 
 h2 {
@@ -58,13 +56,62 @@ h2 {
 
 .card {
     border: 1px solid black;
-    width: 60vmin;
     margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 10px;
     border-radius: 10px;
 }
+
+#index-card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vmin;
+}
+
+.details-container {
+    display: grid;
+    min-height: 75vh;
+    grid-template-columns: repeat(9, 10%) ;
+    grid-template-rows: 20% 20% auto;
+}
+
+
+#detail-card {
+    grid-column-start: 1;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+}
+
+#sightings-card {
+    margin: 2px;
+    grid-column-start: 1;
+    grid-column-end: span 3;
+    grid-row-start: 3;
+}
+
+#detail-card > h3 {
+    margin-top: 0px;
+
+}
+
+#sightings-card {
+    display: inline-block;
+}
+
+#seen-card {
+    margin: 2px;
+    grid-column-start: 4;
+    grid-column-end: span 3;
+    grid-row-start: 3;
+}
+
+#places-card {
+    margin: 2px;
+    grid-column-start: 7;
+    grid-column-end: span 3;
+    grid-row-start: 3;
+}
+
 
 .button {
     width: 75px;
@@ -79,6 +126,8 @@ h2 {
     text-decoration: none;
     color: white;
 }
+
+
 
 
 

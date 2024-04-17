@@ -50,12 +50,12 @@ def remove_place(request, finch_id, place_id):
 
 class FinchCreate(CreateView):
     model = Finch
-    fields = '__all__'
+    fields = [ 'name', 'subtype', 'description', 'size', 'range']
     success_url = '/finches'
 
 class FinchUpdate(UpdateView):
     model = Finch
-    fields = ['subtype' , 'description', 'size', 'range']
+    fields = ['subtype', 'description', 'size', 'range']
 
 class FinchDelete(DeleteView):
     model = Finch
